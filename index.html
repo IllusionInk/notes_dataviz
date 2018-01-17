@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Visdown - Markdown for Visualisation</title>
+  <meta name="description" content="Create Simple Visualisation Charts with Markdown">
+
+  <script src="lib/vega.min.js"></script>
+  <script src="lib/vega-lite.min.js"></script>
+  <script src="lib/vega-embed.min.js"></script>
+  <script src="lib/marked.min.js"></script>
+  <script src="lib/yaml.min.js"></script>
+
+  <style>
+    #visdown-output {max-width: 800px; margin: 0 auto;}
+    #visdown-input {display: none;}
+  </style>
+</head>
+<body>
+
+<div id="visdown-input">
+
+# Astronauts hanging at the space bar
+
+```vis
+width: 600
+height: 400
+data:
+  url: data/notes.csv
+layer:
+- mark: bar
+  encoding:
+    x:
+     field: year
+     type: N
+    y:
+     field: money
+     type: Q
+     axis:
+      orient: left
+    color:
+     field: denom
+     type: N
+- mark: line
+  encoding:
+    x:
+     field: year
+     type: N
+    y:
+     field: number
+     type: Q
+     axis:
+      grid: false
+      orient: right
+    color:
+      field: denom
+      type: N
+resolve:
+  scale:
+    y: independent
+
+```
+
+# Second Chart
+
+```vis
+width: 600
+height: 400
+data:
+  url: data/notes.csv
+layer:
+- mark: bar
+  encoding:
+    x:
+     field: year
+     type: N
+    y:
+     field: money
+     type: Q
+     axis:
+      orient: left
+    color:
+     field: denom
+     type: N
+- mark: line
+  encoding:
+    x:
+     field: year
+     type: N
+    y:
+     field: number
+     type: Q
+     axis:
+      grid: false
+      orient: right
+    color:
+      field: denom
+      type: N
+resolve:
+  scale:
+    y: independent
+
+```
+
+</div>
+<div id="visdown-output"></div>
+<script src="visdown.js"></script>
+
+</body>
+</html>
