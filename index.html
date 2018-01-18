@@ -24,41 +24,26 @@
 <div id="visdown-input">
 
 # Tales of time
+A representation of the changing representations of the denominatiosn in the economy
 
 ```vis
 
-
 data:
   url: data/notes.csv
-hconcat:
-- mark: area
-  height: 200
-  width: 350
-  encoding:
-    x:
-      field: year
-      type: N
-    y:
-      field: money
-      type: Q
-      stack: normalize
-    color:
-      field: value
-      type: N
-- mark: area
-  height: 200
-  width: 350
-  encoding:
-    x:
-      field: year
-      type: N
-    y:
-      field: number
-      type: Q
-      stack: normalize
-    color:
-      field: value
-      type: N
+mark: bar
+height: 200
+width: 700
+encoding:
+  x:
+   field: year
+   type: N
+  y:
+   field: money
+   type: Q
+   stack: normalize
+  color:
+   field: value
+   type: N
 
 ```
 
