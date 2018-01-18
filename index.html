@@ -20,84 +20,168 @@
 </head>
 <body>
 
+
 <div id="visdown-input">
 
-# Astronauts hanging at the space bar
+# Tales of time
 
 ```vis
+
+
+data:
+  url: data/notes.csv
+hconcat:
+- mark: area
+  height: 200
+  width: 350
+  encoding:
+    x:
+      field: year
+      type: N
+    y:
+      field: money
+      type: Q
+      stack: normalize
+    color:
+      field: value
+      type: N
+- mark: area
+  height: 200
+  width: 350
+  encoding:
+    x:
+      field: year
+      type: N
+    y:
+      field: number
+      type: Q
+      stack: normalize
+    color:
+      field: value
+      type: N
+
+```
+
+# Story Between Notes
+A comparative analysis of the number of notes in circulation. Key years being 1987 and  2011.
+Observations:
+1. 500 rs. notes were released in 1987, thereby causing denominations like 20 Rs. to show a dip in the no. of currency notes
+2. 1000rs. note were released in 2001. Interestingly the 50 rs. notes plumetted further in time , while the 20rs. notes continued to remain low
+
+
+```vis
+
 width: 600
-height: 400
+height: 500
 data:
   url: data/notes.csv
 layer:
+
 - mark: bar
   encoding:
     x:
-     field: year
-     type: N
+      field: year
+      type: N
     y:
-     field: money
-     type: Q
-     axis:
-      orient: left
+      aggregate: sum
+      field: number
+      type: Q
+      axis:
+        grid: false
+        orient: left
     color:
-     field: denom
-     type: N
-- mark: line
+      value: 73d886
+    opacity:
+      value: 0.35
+
+- transform:
+  - filter: (datum.value == 100) || (datum.value == 500) || (datum.value == 20) || (datum.value == 50) || (datum.value == 1000)
+  mark:
+    type: circle
   encoding:
     x:
-     field: year
-     type: N
-    y:
-     field: number
-     type: Q
-     axis:
-      grid: false
-      orient: right
-    color:
-      field: denom
+      field: year
       type: N
+    y:
+      field: number
+      type: Q
+      axis:
+        grid: false
+        orient: right
+    color:
+      field: value
+
+
+- transform:
+  - filter: (datum.year == 2001) || (datum.year == 1987)
+  - calculate: (0*datum.year)
+    as: yearzero
+  mark:
+    type: point
+  encoding:
+    x:
+      field: year
+      type: N
+    y:
+      field: yearzero
+      type: Q
+      axis:
+       title:
+    size:
+       value: 200
 resolve:
   scale:
     y: independent
 
 ```
 
-# Second Chart
+
+
+
+# Century par average
+
+<p>100Rs. Notes steadily climbed and crossed the average no. of total notes in circulation.
+By the end of 2015, they had the most presence in terms of note numerals.
+</p>
 
 ```vis
+
 width: 600
-height: 400
+height: 500
 data:
   url: data/notes.csv
+transform:
+ - filter: (datum.value == 100) || (datum.value == 500) || (datum.value == 20) || (datum.value == 50) || (datum.value == 1000)
 layer:
-- mark: bar
+
+- mark:
+    type: circle
   encoding:
     x:
-     field: year
-     type: N
-    y:
-     field: money
-     type: Q
-     axis:
-      orient: left
-    color:
-     field: denom
-     type: N
-- mark: line
-  encoding:
-    x:
-     field: year
-     type: N
-    y:
-     field: number
-     type: Q
-     axis:
-      grid: false
-      orient: right
-    color:
-      field: denom
+      field: year
       type: N
+    y:
+      field: number
+      type: Q
+      axis:
+        grid: false
+        orient: left
+    color:
+      field: value
+
+- mark:
+    type: line
+  encoding:
+    x:
+      field: year
+      type: N
+    y:
+      aggregate: mean
+      field: number
+      type: Q
+      axis:
+        grid: false
+        orient: right
 resolve:
   scale:
     y: independent
