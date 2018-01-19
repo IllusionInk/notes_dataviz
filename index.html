@@ -14,36 +14,102 @@
   <script src="lib/yaml.min.js"></script>
 
   <style>
-    #visdown-output {max-width: 800px; margin: 0 auto;}
+    #visdown-output {max-width: 1000px; margin: 0 auto;}
     #visdown-input {display: none;}
+
+   body {width: 900px; margin: 0 auto; background-color: #f7f4dc;font-family:sans-serif;}
+   h1{color:#545454}
+
   </style>
 </head>
 <body>
-
+<h1> Impact of demonetisation </h1>
+<p>A representation of the changing position of the denominations in the economy. A historical trend depicting the rise and occurence of Rs.500 and Rs.1000 denominations</p>
 
 <div id="visdown-input">
 
-# Tales of time
-A representation of the changing representations of the denominatiosn in the economy
-
 ```vis
-
 data:
   url: data/notes.csv
-mark: bar
-height: 200
+height: 400
 width: 700
-encoding:
-  x:
-   field: year
-   type: N
-  y:
-   field: money
-   type: Q
-   stack: normalize
-  color:
-   field: value
-   type: N
+layer:
+- mark: bar
+  encoding:
+   x:
+    field: year
+    type: N
+    axis:
+     labelAngle: -45
+     title: "Years of Circulation"
+   y:
+    field: money
+    type: Q
+    stack: normalize
+    axis:
+     title: "Money in Circulation (in Billions)"
+    scale:
+     paddingInner: 200
+   color:
+    field: denom
+    legend:
+     title: "Denominations"
+    scale:
+     range:
+     - "#d1d1d1"
+     - "#d1d1d1"
+     - "#d1d1d1"
+     - "#d1d1d1"
+     - "#d1d1d1"
+     - "#d1d1d1"
+     - "#d1d1d1"
+     - "#f2eea7"
+     - "#e5b09e"
+
+    type: N
+- mark: text
+  encoding:
+   x:
+    field: year
+    type: N
+```
+<h1> ## Share in the economy </h1>
+
+```vis
+data:
+  url: data/notes.csv
+height: 50
+width: 700
+transform:
+- filter: (datum.year == 2015)
+layer:
+- mark: bar
+  encoding:
+     y:
+      field: year
+      type: N
+      axis:
+       title: false
+     x:
+      field: money
+      type: Q
+      stack: normalize
+      axis:
+       title: "Money in Circulation (in Billions)"
+     color:
+      field: denom
+      legend: false
+      scale:
+       range:
+       - "#d1d1d1"
+       - "#d1d1d1"
+       - "#d1d1d1"
+       - "#d1d1d1"
+       - "#d1d1d1"
+       - "#d1d1d1"
+       - "#d1d1d1"
+       - "#f2eea7"
+       - "#e5b09e"
 
 ```
 
@@ -173,6 +239,7 @@ resolve:
     y: independent
 
 ```
+
 </div>
 <div id="visdown-output"></div>
 <script src="visdown.js"></script>
