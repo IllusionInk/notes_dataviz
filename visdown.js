@@ -37,12 +37,12 @@ let output = document.querySelector("#visdown-output");
 
 function visdown(input, element) {
   console.log('visdown');
-  let visdownText = input.textContent;
+  let visdownText = input.innerHTML;
   element.innerHTML = marked(visdownText);
   _render(element);
 }
 
 
  visdown(input, output)
-	
+
 }

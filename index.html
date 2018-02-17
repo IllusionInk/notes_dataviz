@@ -18,13 +18,18 @@
     #visdown-input {display: none;}
 
    body {width: 900px; margin: 0 auto; background-color: #f7f4dc;font-family:sans-serif;}
-   h1{color:#545454; font-style: oblique;; font-size: 40px;}
-   h2{color:#545454; font-style: oblique;; font-size: 30px;}
+   h1{color:#605000;}
+   h2{color:#605000;}
+   h3{color:#605d51;}
+   h4{color:#605d51;}
+   p{color:#776f42; font-size: 16px;}
   </style>
 </head>
 <body>
-<h1> Impact of demonetisation </h1>
-<p>A representation of the changing position of the denominations in the economy. A historical trend depicting the rise and occurence of Rs.500 and Rs.1000 denominations</p>
+<h1> Impact of Demonetisation </h1>
+<h3> A study of the Indian Currency </h3>
+</br>
+<p>  A representation of the changing position of the denominations in the economy. A historical trend depicting the rise and occurence of Rs.500 and Rs.1000 denominations</p>
 
 <div id="visdown-input">
 
@@ -63,8 +68,8 @@ layer:
      - "#d1d1d1"
      - "#d1d1d1"
      - "#d1d1d1"
-     - "#f2eea7"
-     - "#e5b09e"
+     - "#e0d67c"
+     - "#d88e77"
 
     type: N
 - mark: text
@@ -73,47 +78,48 @@ layer:
     field: year
     type: N
 ```
-<h2># Share in the economy </h2>
+<h3> Story in 2015 </h3>
 
 ```vis
-data:
-  url: data/notes.csv
+
+width: 800
 height: 50
-width: 700
+data:
+ url: data/notes2015.csv
 transform:
-- filter: (datum.year == 2015)
 layer:
 - mark: bar
   encoding:
-     y:
+    y:
       field: year
       type: N
-      axis:
-       title: false
-     x:
+    x:
       field: money
       type: Q
       stack: normalize
-      axis:
-       title: "Money in Circulation (in Billions)"
-     color:
-      field: denom
-      legend: false
-      scale:
-       range:
-       - "#d1d1d1"
-       - "#d1d1d1"
-       - "#d1d1d1"
-       - "#d1d1d1"
-       - "#d1d1d1"
-       - "#d1d1d1"
-       - "#d1d1d1"
-       - "#f2eea7"
-       - "#e5b09e"
+    color:
+      field: state
+      type: N
+- transform:
+  - aggregate:
+    - op: sum
+      field: money
+      as: moneysum
+  mark: text
+  encoding:
+    y:
+      field: year
+      type: N
+    x:
+      field: money
+      type: Q
+      stack: normalize
+    text:
+
 
 ```
 
-# Story Between Notes
+<h2> A Story of Notes </h2>
 A comparative analysis of the number of notes in circulation. Key years being 1987 and  2011.
 Observations:
 1. 500 rs. notes were released in 1987, thereby causing denominations like 20 Rs. to show a dip in the no. of currency notes
@@ -189,55 +195,94 @@ resolve:
 
 ```
 
-
-# Century above average
-
-100Rs. Notes steadily climbed and crossed the average no. of total notes in circulation.
+<h2> Share in the economy </h2>
+<p>100Rs. Notes steadily climbed and crossed the average no. of total notes in circulation.
 By the end of 2015, they had the most presence in terms of note numerals.
+</p>
 
 
 ```vis
 
-width: 600
-height: 500
 data:
-  url: data/notes.csv
+ url: data/notes.csv
 transform:
- - filter: (datum.value == 100) || (datum.value == 500) || (datum.value == 20) || (datum.value == 50) || (datum.value == 1000)
-layer:
-
-- mark:
-    type: circle
+- calculate: 'datum.value == 500 ? "Denom_500":"DENOM_Other"'
+  as: 500money
+hconcat:
+- mark: area
+  width: 350
   encoding:
     x:
       field: year
       type: N
     y:
-      field: number
+      aggregate: sum
+      field: money
       type: Q
-      axis:
-        grid: false
-        orient: left
     color:
-      field: value
+      field: 500money
+      type: N
+- mark: area
+  width: 350
+  encoding:
+    x:
+      field: year
+      type: N
+      axis:
+       title: "Years in Circulation"
+       tickCount: 3
+    y:
+      aggregate: sum
+      field: number
+      type: Q
+    color:
+      field: 500money
+      scale:
+        range:
+        - "#d1d1d1"
+        - "#e0d67c"
+```
 
-- mark:
-    type: line
+```vis
+
+data:
+ url: data/notes.csv
+transform:
+- calculate: 'datum.value == 1000 ? "Denom_1000":"DENOM_Other"'
+  as: 1000money
+hconcat:
+- mark: area
+  width: 350
   encoding:
     x:
       field: year
       type: N
     y:
-      aggregate: mean
+      aggregate: sum
+      field: money
+      type: Q
+    color:
+      field: 1000money
+      type: N
+- mark: area
+  width: 350
+  encoding:
+    x:
+      field: year
+      type: N
+      axis:
+       title: "Years in Circulation"
+       tickCount: 3
+    y:
+      aggregate: sum
       field: number
       type: Q
-      axis:
-        grid: false
-        orient: right
-resolve:
-  scale:
-    y: independent
-
+    color:
+      field: 1000money
+      scale:
+        range:
+        - "#d1d1d1"
+        - "#d88e77"
 ```
 
 </div>
