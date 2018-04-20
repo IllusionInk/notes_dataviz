@@ -45,11 +45,11 @@ Considering the recent demonetisation and its impact on the nation; I decided to
 ### Tools Used
 ---
 
- - Vegalite - Javascript Charting library used for generating charts for the visualization.
+ - **Vegalite** - Javascript Charting library used for generating charts for the visualization.
 
-- Illustrator - Tweaking the chart color, glyphs and adding annotations for the final layout.
+- **Illustrator** - Tweaking the chart color, glyphs and adding annotations for the final layout.
 
-- ai2html (Illustrator Plugin) - Generating the final html page.
+- **ai2html** (Illustrator Plugin) - Generating the final html page.
 
 ### References
 ---
