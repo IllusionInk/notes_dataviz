@@ -23,8 +23,8 @@ Considering the recent demonetisation and its impact on the nation; I decided to
 >A financial phenomenon having occured repeatedly, 'demonetisation' usually leads to disruptions in the daily monetary transactions, similar  to a rising tidal wave. 
 
 #### Questions
-What percentage of the economy did 500 and 1000 rupee notes occupy ?
-Were there any previous demonetisations?  If so, which denominations were affected.
+- What percentage of the economy did 500 and 1000 rupee notes occupy ?
+- Were there any previous demonetisations?  If so, which denominations were affected.
 
 #### Concept Sketches
  - Layout Sketch 
@@ -38,7 +38,7 @@ Were there any previous demonetisations?  If so, which denominations were affect
 
 ### Final Visualization
 ---
-**Prior Ripples** -  one of the charts from the visualization
+**Prior Ripples** -  one of the charts from the [visualization](https://illusionink.github.io/notes_dataviz/)
 ![Prior Ripples](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/prior%20ripples-04.jpg)
 
 
