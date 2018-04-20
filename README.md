@@ -8,7 +8,8 @@
  
  
 ## Initial Explorations
---
+---
+
  - Intial Charts rendered using Vegalite.
  ![Sketch1](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/denom_event-01.jpg)
  ![Sketch 2](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/denom_history-01.jpg)
