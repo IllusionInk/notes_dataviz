@@ -8,7 +8,7 @@
  
  
 ## Initial Explorations
----
+--
  - Intial Charts rendered using Vegalite.
  ![Sketch1](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/denom_event-01.jpg)
  ![Sketch 2](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/denom_history-01.jpg)
@@ -16,7 +16,7 @@
  ![Sketch 4](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/note-share.jpg)
 
 ## Visualization Concept  - Demonetisation
----
+--
 Considering the recent demonetisation and its impact on the nation; I decided to understand and depict underlying reasons for the same. In addition to this, I wanted to identify prior landmark events in the life of 500 and 1000 rupee notes.
 
 >A financial phenomenon having occured repeatedly, 'demonetisation' usually leads to disruptions in the daily monetary transactions, similar  to a rising tidal wave. 
@@ -36,13 +36,13 @@ Were there any previous demonetisations?  If so, which denominations were affect
  - Generate an HTML page using ai2html in Illustrator.
 
 ## Final Visualization
----
+--
 **Prior Ripples** -  one of the charts from the visualization
 ![Prior Ripples](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/prior%20ripples-04.jpg)
 
 
 ## Tools Used
------
+--
 
  - Vegalite - Javascript Charting library used for generating charts for the visualization.
 
@@ -51,7 +51,7 @@ Were there any previous demonetisations?  If so, which denominations were affect
 - ai2html (Illustrator Plugin) - Generating the final html page.
 
 ## References
------
+--
  - Amit Kapoor’s (*faculty incharge*) [Currency Dataset](https://github.com/amitkaps/visdown/blob/master/data/notes.csv) 
  - [ Primary Source](https://www.rbi.org.in/scripts/PublicationsView.aspx?id=17293)
  - [Indian Demonetization History](https://mostlyeconomics.wordpress.com/2016/11/11/digging-through-india-demonetization-history-12-jan-1946-saturday-and-16-jan-1978-monday/) 
