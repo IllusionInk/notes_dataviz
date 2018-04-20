@@ -7,8 +7,8 @@
  > Based on the initial analysis, we had to frame a narrative and design a single page HTML visualisation on the dataset.
  
  
-## Initial Explorations
----
+### Initial Explorations
+------
 
  - Intial Charts rendered using Vegalite.
  ![Sketch1](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/denom_event-01.jpg)
