@@ -11,10 +11,7 @@
 ------
 
  - Intial Charts rendered using Vegalite.
- ![Sketch1](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/denom_event-01.jpg)
- ![Sketch 2](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/denom_history-01.jpg)
- ![Sketch 3](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/dotmap_money.jpg)
- ![Sketch 4](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/note-share.jpg)
+ ![Sketch](https://github.com/IllusionInk/notes_dataviz/blob/master/assets/charts/intitial_chart_explorations.jpg)
 
 ### Visualization Concept  - Demonetisation
 --- 
